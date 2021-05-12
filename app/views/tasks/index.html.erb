@@ -1,0 +1,13 @@
+<h1>MY CURRENTS TASKS</h1>
+
+<div class="tasks-list">
+  <% @tasks.each do |task| %>
+    <div class="task">
+      <h3><%= link_to task.title.capitalize, task_path(task), { id: "task-title" } %></h3>
+      <%= link_to "Edit", edit_task_path(task), { id: "edit-btn" } %>
+      <%= link_to "Delete", task_path(task), method: :delete, data: { confirm: "Are you sure?" }, id: "delete-btn" %>
+    </div>
+  <% end %>
+</div>
+<hr>
+<%= link_to 'add a new task', new_task_path, { id: "add-btn" } %>
